@@ -13,6 +13,7 @@ export default class Header extends React.Component {
       searchResults: [],
       isInputSelected: false,
       isHeaderClicked: false,
+      isResultHovering: false
     }
     this.inputRef = React.createRef()
     this.headerRef = React.createRef()
@@ -23,6 +24,14 @@ export default class Header extends React.Component {
       this.inputRef.current.focus()
       this.setState({ isInputSelected: true })
     }
+  }
+
+  handleResultEnter = () => {
+    this.setState({ isResultHovering: true })
+  }
+
+  handleResultLeave = () => {
+    this.setState({ isResultHovering: false })
   }
 
   clearInput = () => {
@@ -101,7 +110,6 @@ export default class Header extends React.Component {
 
   render() {
     const { searchTerm, searchResults } = this.state
-    console.log(this.state.isInputSelected)
 
     return (
       <header className={styles.header_whole} ref={this.headerRef}>
@@ -143,7 +151,7 @@ export default class Header extends React.Component {
         </nav>
         {searchResults.length != 0 ? (
           <div className={styles.result_frame}>
-            {
+            {/* ヒット数1以上 */
               searchResults.map((item, index) => (
                 <Link href={item.link} key={index} className={styles.result_link}>
                   <div className={`${styles.result_box}`}
@@ -160,23 +168,41 @@ export default class Header extends React.Component {
               ))
             }
           </div>
-        ) : this.state.searchTerm == '' || !this.state.isHeaderClicked ? <></> :
-          !this.state.isInputSelected ? <></> : (
-            <div className={styles.result_frame}>
-              <div className={styles.result_link}>
-                <div className={`${styles.result_box}`}
-                  onClick={this.clearInput}>
-                  <p>Not Found</p>
-                  <p>検索欄より入力し直すか、<br />「X」ボタンを押してクリアしてください</p>
-                  <ul>
-                    <li>Search</li>
-                    <li>検索</li>
-                    <li>ヒットなし</li>
-                  </ul>
+        ) : this.state.searchTerm == '' || !this.state.isHeaderClicked ?
+          /* 入力がない || ヘッダー領域がクリックされていない */ <></> :
+          !this.state.isInputSelected ?
+            /* Inputが選択されていない */ !this.state.isResultHovering ? <></> :
+              <div className={styles.result_frame} onMouseEnter={this.handleResultEnter} onMouseLeave={this.handleResultLeave}>
+                <div className={styles.result_link}>
+                  <div className={`${styles.result_box}`}
+                    onClick={this.clearInput}>
+                    <p>Not Found</p>
+                    <p>検索欄より入力し直すか、<br />「X」ボタンを押してクリアしてください</p>
+                    <ul>
+                      <li>Search</li>
+                      <li>検索</li>
+                      <li>ヒットなし</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          )
+            : (
+              /* Inputが選択された */
+              <div className={styles.result_frame} onMouseEnter={this.handleResultEnter} onMouseLeave={this.handleResultLeave}>
+                <div className={styles.result_link}>
+                  <div className={`${styles.result_box}`}
+                    onClick={this.clearInput}>
+                    <p>Not Found</p>
+                    <p>検索欄より入力し直すか、<br />「X」ボタンを押してクリアしてください</p>
+                    <ul>
+                      <li>Search</li>
+                      <li>検索</li>
+                      <li>ヒットなし</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )
         }
       </header>)
   }

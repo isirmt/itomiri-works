@@ -17,6 +17,8 @@ export default class Home extends React.Component {
     this.works = works
     this.filteredWorks = this.works
 
+    this.containerRef = React.createRef()
+
     this.uniqueTags = Array.from(new Set(works.flatMap(item => item.tags.map(tag => tag.name))))
   }
 
@@ -74,14 +76,46 @@ export default class Home extends React.Component {
     }))
   }
 
+  handleDocumentClick = (event) => {
+    const containerElement = this.containerRef.current
+
+    if (containerElement && !containerElement.contains(event.target)) {
+
+      const excludedButtons = document.querySelectorAll('.exclude-click')
+      let isExcludedButtonClicked = false
+
+      for (const button of excludedButtons) {
+        if (button.contains(event.target)) {
+          isExcludedButtonClicked = true
+          break
+        }
+      }
+
+      if (!isExcludedButtonClicked) {
+        this.isMenuOpen = false
+        this.setState({
+          isMenuOpen: false
+        })
+      }
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.handleDocumentClick)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleDocumentClick)
+  }
+
   render() {
     this.filter()
     return (
       <>
         <SEO />
         <>
-          <button className={`${styles.tags_button} ${this.state.isMenuOpen ? styles.open : ''}`} onClick={this.toggleMenu} />
-          <div className={`${styles.all_tags_box} ${this.state.isMenuOpen ? styles.open : ''}`}>
+          <button className={`${styles.tags_button} ${this.state.isMenuOpen ? styles.open : ''} exclude-click`} onClick={this.toggleMenu} />
+          <div className={`${styles.all_tags_box} ${this.state.isMenuOpen ? styles.open : ''}`} ref={this.containerRef}>
             <div className={styles.all_tags_area}>
               <div className={styles.tag_div}>
                 <button
@@ -132,8 +166,8 @@ export default class Home extends React.Component {
                         top: ".1rem",
                         width: "2rem"
                       }} /></p>
-                    <p className={m_PLUS_Rounded_1c.className}>Not Found</p>
-                    <button onClick={this.resetTags} className={`${styles.reset_button} ${m_PLUS_Rounded_1c.className} `}>Reset Tags</button>
+                    <p>Not Found</p>
+                    <button onClick={this.resetTags} className={`${styles.reset_button}`}>Reset Tags</button>
                   </div>
                 )}
           </div>

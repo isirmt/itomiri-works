@@ -16,8 +16,6 @@ export default function handler(req) {
 
     const targetItem = works.find(item => item.id.toString() === targetId)
 
-    console.log(targetItem)
-
     const urlBackImg = "url(https://works.itomiri.com" + targetItem.img + ")"
 
     return new ImageResponse(
@@ -106,7 +104,7 @@ export default function handler(req) {
     )
   } catch (e) {
     console.log(`${e.message}`)
-    return new Response(`Failed to generate the image`, {
+    return new Response(`Failed to Generate the Image`, {
       status: 500,
     })
   }
