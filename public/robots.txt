@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://works.itomiri.com
+
+# Sitemaps
+Sitemap: https://works.itomiri.com/sitemap.xml

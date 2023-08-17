@@ -1,0 +1,17 @@
+@import "../Global/responsive";
+@import "../Global/variable";
+
+.top {
+  &::-webkit-scrollbar {
+    width: 2rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: #c8c8c8;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #3DCAB1;
+    border-radius: 2rem;
+  }
+}

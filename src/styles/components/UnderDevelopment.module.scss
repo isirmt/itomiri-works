@@ -1,0 +1,35 @@
+@import "../Global/responsive";
+@import "../Global/variable";
+
+.frame {
+  position: relative;
+  margin: 10rem auto 3rem auto;
+  min-height: calc(100vh - 13rem - 8.1rem);
+  width: $v-big-width;
+  padding: 0;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  @include mqUp(xl) {
+    width: 90%;
+
+    @include mqUp(sm) {
+      margin-top: 11rem;
+      min-height: calc(100vh - 14rem - 8.1rem);
+    }
+  }
+
+  p {
+    margin: .5rem auto;
+    font-size: 1.2rem;
+
+    &:nth-child(1) {
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+}

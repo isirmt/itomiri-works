@@ -1,0 +1,242 @@
+@import "../Global/responsive";
+@import "../Global/variable";
+
+.tags_button {
+  top: 6rem;
+  left: 2rem;
+  width: 6rem;
+  height: 2.4rem;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: $c-blue;
+  border-radius: .3rem;
+  border-style: solid;
+  border-width: .15rem;
+  border-color: $c-hblue;
+  position: fixed;
+  z-index: 100;
+  cursor: pointer;
+  transition: all .1s;
+  box-shadow: .15rem .15rem $c-hblue;
+
+  @include mqUp(sm) {
+    top: 7rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $c-hblue;
+  }
+
+  @include mqDown(xl) {
+    display: none;
+  }
+
+  &::after {
+    content: "#Tag";
+    text-align: center;
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    position: absolute;
+    top: .3rem;
+    left: 1.3rem;
+    color: white;
+  }
+
+  &.open {
+
+    box-shadow: none;
+
+    &::after {
+      left: 1.2rem;
+      content: "Close";
+    }
+  }
+}
+
+.all_tags_box {
+  display: none;
+  width: 70%;
+  height: auto;
+  overflow-y: scroll;
+  max-height: 25.5rem;
+  position: fixed;
+  top: 5rem;
+  left: 1rem;
+  z-index: 90;
+  user-select: none;
+  background-color: rgba(250, 250, 250, 0.8);
+  border-radius: .3rem;
+  border-style: solid;
+  border-width: .1rem;
+  backdrop-filter: blur(1rem);
+  border-color: #c8c8c8;
+  box-shadow: .2rem .2rem $c-hblue;
+
+  @include mqUp(sm) {
+    top: 6rem;
+  }
+
+  @include mqDown(xl) {
+    display: block;
+    min-width: 11rem;
+    width: calc((100% - $v-big-width) / 2);
+    height: calc(100vh - 20rem);
+    max-height: none;
+    overflow-y: scroll;
+    top: 10rem;
+    left: 2rem
+  }
+
+  &.open {
+    display: block;
+  }
+
+  .all_tags_area {
+    margin-top: 6rem;
+    margin: 4.7rem 0 2rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mqDown(xl) {
+      min-width: 8.5rem;
+      width: 60%;
+      margin: 2rem auto 2rem auto;
+      display: block;
+      flex-wrap: unset;
+    }
+
+    .tag_div {
+      display: block;
+      cursor: pointer;
+      pointer-events: none;
+      margin-bottom: .2rem;
+
+      .reset_tags {
+        pointer-events: all;
+        padding: .3rem .7rem;
+        background-color: $c-blue;
+        border-style: solid;
+        border-color: $c-hblue;
+        border-width: .15rem;
+        border-radius: .3rem;
+        color: white;
+        margin: 0 1rem .1rem 0;
+        position: relative;
+        left: -.3rem;
+        appearance: none;
+        -webkit-appearance: none;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all .1s;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+          background-color: $c-hblue;
+        }
+      }
+
+      .check {
+        display: none;
+
+        &:checked+.check_string::before {
+          background-color: $c-blue;
+          content: "#";
+          color: white;
+          font-weight: bold;
+        }
+      }
+
+      .check_string {
+        font-size: 1.1rem;
+        margin: 0 1rem 0 1.3rem;
+        position: relative;
+        line-height: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        pointer-events: all;
+
+        &:hover::before,
+        &:focus::before {
+          outline-color: $c-blue;
+        }
+
+        &::before {
+          font-weight: bold;
+          display: block;
+          position: absolute;
+          background-color: white;
+          content: "#";
+          color: $c-blue;
+          transition: all .1s;
+          top: .15rem;
+          left: -1.6rem;
+          width: 1.0rem;
+          height: 1.2rem;
+          padding-left: .2rem;
+          line-height: 1.31rem;
+          z-index: 95;
+          border: .1rem $c-blue solid;
+          border-radius: .15rem;
+          outline-style: solid;
+          outline-width: .15rem;
+          outline-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.works {
+  position: relative;
+  margin: 10rem auto 3rem auto;
+  min-height: calc(100vh - 13rem - 8.1rem);
+  width: $v-big-width;
+  padding: 0;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mqUp(xl) {
+    width: 90%;
+
+    @include mqUp(sm) {
+      margin-top: 11rem;
+      min-height: calc(100vh - 14rem - 8.1rem);
+    }
+  }
+
+  .not_found {
+    text-align: center;
+    font-size: 1.7rem;
+    position: relative;
+
+    p:nth-child(2) {
+      position: relative;
+      top: -1.1rem;
+    }
+
+    .reset_button {
+      padding: .3rem .7rem;
+      background-color: $c-blue;
+      border-style: solid;
+      border-color: $c-hblue;
+      border-width: .15rem;
+      border-radius: .3rem;
+      color: white;
+      appearance: none;
+      -webkit-appearance: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all .1s;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        background-color: $c-hblue;
+      }
+    }
+  }
+}
