@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && next-sitemap --config sitemap.config.js",
+    "build": "next build && next-sitemap --config sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
     "sitemap": "next-sitemap --config sitemap.config.js"
@@ -14,7 +14,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@next/font": "^13.4.13",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",

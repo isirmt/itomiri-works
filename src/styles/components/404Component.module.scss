@@ -1,5 +1,5 @@
-@import "../Global/responsive";
-@import "../Global/variable";
+@import "../global/responsive.scss";
+@import "../global/variable.scss";
 
 .frame {
   position: relative;
@@ -30,6 +30,14 @@
       height: 2rem;
       text-align: center;
       font-size: 2rem;
+    }
+
+    &:nth-child(2) {
+      font-family: 'DotGothic16', sans-serif;
+    }
+
+    &:nth-child(3) {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
     }
   }
 }

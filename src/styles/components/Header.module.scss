@@ -1,5 +1,5 @@
-@import "../Global/responsive";
-@import "../Global/variable";
+@import "../global/responsive.scss";
+@import "../global/variable.scss";
 
 .header_whole {
   background-color: rgb(250, 250, 250);
@@ -14,6 +14,7 @@
   height: 4rem;
   z-index: 110;
   user-select: none;
+  font-family: 'DotGothic16', sans-serif;
 
   @include mqUp(sm) {
     height: 5.5rem;
@@ -228,6 +229,7 @@
   transition: all .2s;
   z-index: 120;
   box-shadow: 0 .15rem $c-hblue;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 
   @include mqUp(xl) {
     right: 0;

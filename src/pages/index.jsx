@@ -1,21 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/pages/Home.module.scss'
-import Layout from '@/components/Layout'
+import styles from '../styles/pages/Home.module.scss'
 import * as React from 'react'
 import works from '../../json/worksList'
 import WorkCard from '@/components/WorkCard'
 import SEO from '@/components/SEO'
-import { M_PLUS_Rounded_1c } from 'next/font/google'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
-
-
-const m_PLUS_Rounded_1c = M_PLUS_Rounded_1c({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap'
-})
 
 export default class Home extends React.Component {
 
@@ -91,8 +80,8 @@ export default class Home extends React.Component {
       <>
         <SEO />
         <>
-          <button className={`${m_PLUS_Rounded_1c.className} ${styles.tags_button} ${this.state.isMenuOpen ? styles.open : ''}`} onClick={this.toggleMenu} />
-          <div className={`${m_PLUS_Rounded_1c.className} ${styles.all_tags_box} ${this.state.isMenuOpen ? styles.open : ''}`}>
+          <button className={`${styles.tags_button} ${this.state.isMenuOpen ? styles.open : ''}`} onClick={this.toggleMenu} />
+          <div className={`${styles.all_tags_box} ${this.state.isMenuOpen ? styles.open : ''}`}>
             <div className={styles.all_tags_area}>
               <div className={styles.tag_div}>
                 <button
@@ -153,9 +142,3 @@ export default class Home extends React.Component {
     )
   }
 }
-
-export const getServerSideProps = async (context) => ({
-  props: {
-    layout: true
-  }
-})

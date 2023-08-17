@@ -1,7 +1,8 @@
-@import "../Global/responsive";
-@import "../Global/variable";
+@import "../global/responsive.scss";
+@import "../global/variable.scss";
 
 .tags_button {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   top: 6rem;
   left: 2rem;
   width: 6rem;
@@ -56,6 +57,7 @@
 }
 
 .all_tags_box {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   display: none;
   width: 70%;
   height: auto;

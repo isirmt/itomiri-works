@@ -1,23 +1,9 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
-import styles from '@/styles/Components/Header.module.scss'
-import { DotGothic16 } from 'next/font/google'
+import styles from '../styles/components/Header.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons"
 import works from '../../json/worksList'
-import { M_PLUS_Rounded_1c } from 'next/font/google'
-
-const m_PLUS_Rounded_1c = M_PLUS_Rounded_1c({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap'
-})
-
-const dotGothic16 = DotGothic16({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap'
-})
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -89,6 +75,8 @@ export default class Header extends React.Component {
     const searchTerm = event.target.value
     this.setState({ searchTerm })
 
+    this.setState({ isInputSelected: true })
+
     if (searchTerm == "") {
       this.setState({ searchResults: [] })
       return
@@ -113,15 +101,16 @@ export default class Header extends React.Component {
 
   render() {
     const { searchTerm, searchResults } = this.state
+    console.log(this.state.isInputSelected)
 
     return (
       <header className={styles.header_whole} ref={this.headerRef}>
         <nav className={styles.header_nav}>
           <div className={`${this.state.isInputSelected || this.state.searchTerm != '' ? styles.hide : ''}`}>
-            <span className={dotGothic16.className}>
+            <span>
               <Link href="/" className={styles.header_home_link}>ミリワークス</Link>
             </span>
-            <span className={dotGothic16.className}>
+            <span>
               in <span className={styles.header_external_link}>
                 itomiri.<Link href="https://itomiri.com" target="_blank" rel="noopener noreferrer" className={styles.line}>com</Link>
               </span>
@@ -137,7 +126,6 @@ export default class Header extends React.Component {
               onBlur={this.handleBlur}
               ref={this.inputRef}
               className={`${styles.search_input}
-                ${dotGothic16.className}
                 ${this.state.isInputSelected || this.state.searchTerm != '' ? styles.inputting : ''}`}
             />
             <button id="header-search-click"
@@ -158,7 +146,7 @@ export default class Header extends React.Component {
             {
               searchResults.map((item, index) => (
                 <Link href={item.link} key={index} className={styles.result_link}>
-                  <div className={`${styles.result_box} ${m_PLUS_Rounded_1c.className}`}
+                  <div className={`${styles.result_box}`}
                     onClick={this.handleResultClick}>
                     <p>{item.title}</p>
                     <p>{item.description}</p>
@@ -172,11 +160,11 @@ export default class Header extends React.Component {
               ))
             }
           </div>
-        ) : this.state.searchTerm == '' || !this.state.isHeaderClicked || !this.state.isInputSelected ? <></> : (
-          <div className={styles.result_frame}>
-            {
+        ) : this.state.searchTerm == '' || !this.state.isHeaderClicked ? <></> :
+          !this.state.isInputSelected ? <></> : (
+            <div className={styles.result_frame}>
               <div className={styles.result_link}>
-                <div className={`${styles.result_box} ${m_PLUS_Rounded_1c.className}`}
+                <div className={`${styles.result_box}`}
                   onClick={this.clearInput}>
                   <p>Not Found</p>
                   <p>検索欄より入力し直すか、<br />「X」ボタンを押してクリアしてください</p>
@@ -187,10 +175,8 @@ export default class Header extends React.Component {
                   </ul>
                 </div>
               </div>
-
-            }
-          </div>
-        )
+            </div>
+          )
         }
       </header>)
   }

@@ -1,13 +1,5 @@
 import { ImageResponse, NextRequest } from "next/server"
-import { M_PLUS_Rounded_1c } from 'next/font/google'
 import works from '../../../json/worksList'
-import Head from "next/head"
-
-const m_PLUS_Rounded_1c = M_PLUS_Rounded_1c({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap'
-})
 
 export const config = {
   runtime: "edge",
@@ -26,13 +18,13 @@ export default function handler(req) {
 
     console.log(targetItem)
 
-    const urlBackImg = "url(http://localhost:3000" + targetItem.img + ")"
+    const urlBackImg = "url(https://works.itomiri.com" + targetItem.img + ")"
 
     return new ImageResponse(
       (
         <div
           style={{
-            backgroundImage: "url(http://localhost:3000/ogp_bg.png)",
+            backgroundImage: "url(https://works.itomiri.com/ogp_bg.png)",
             backgroundColor: "#fff",
             backgroundSize: "100% 100%",
             height: "100%",
@@ -74,13 +66,10 @@ export default function handler(req) {
               whiteSpace: "nowrap",
               overflow: "hidden"
             }}
-
-            className={m_PLUS_Rounded_1c.className}
           >
             {targetItem.title}
           </div>
 
-          {/* <ul className={`${m_PLUS_Rounded_1c.className} ${styles.tag_list}`}> */}
           <ul className="tag_list"
             style={{
               width: "537px",

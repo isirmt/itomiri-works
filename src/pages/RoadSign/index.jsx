@@ -1,6 +1,5 @@
 import * as React from 'react'
 import SongFrame from '@/components/SongData'
-import Layout from '@/components/Layout'
 import meta from './meta'
 import SEO from '@/components/SEO'
 
@@ -92,9 +91,3 @@ export default class RoadSignMain extends React.Component {
     )
   }
 }
-
-export const getServerSideProps = async (context) => ({
-  props: {
-    layout: true
-  }
-})

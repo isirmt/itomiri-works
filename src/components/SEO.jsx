@@ -29,7 +29,7 @@ const SEO = ({
   return (
     <Head>
       <title>{title}</title>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       <meta name="description" content={description} />
       <meta property="og:url" content={path} />

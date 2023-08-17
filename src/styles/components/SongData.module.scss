@@ -1,5 +1,5 @@
-@import "../Global/responsive";
-@import "../Global/variable";
+@import "../global/responsive.scss";
+@import "../global/variable.scss";
 
 .song_frame {
   position: relative;
@@ -11,6 +11,7 @@
   display: grid;
   grid-template-rows: 14.5rem auto 1fr;
   grid-template-columns: 25.8rem 1fr;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 
   @include mqUp(xl) {
     width: 90%;

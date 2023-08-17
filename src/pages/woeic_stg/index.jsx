@@ -17,9 +17,3 @@ export default class WoeicMain extends React.Component {
     )
   }
 }
-
-export const getServerSideProps = async (context) => ({
-  props: {
-    layout: true
-  }
-})

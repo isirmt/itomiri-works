@@ -1,14 +1,8 @@
 import * as React from 'react'
-import styles from '@/styles/components/SongData.module.scss'
+import styles from '../styles/components/SongData.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 import { M_PLUS_Rounded_1c } from 'next/font/google'
-
-const m_PLUS_Rounded_1c = M_PLUS_Rounded_1c({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap'
-})
 
 export default class SongFrame extends React.Component {
   constructor(props) {
@@ -41,16 +35,16 @@ export default class SongFrame extends React.Component {
           <Image
             src={this.meta.thumbnail}
             alt={this.meta.title + "'s Thumbnail"}
-            layout='fill'
+            fill
             className={styles.work_card_image} />
         </div>
         <div className={styles.song_caption}>
-          <p className={`${styles.song_title} ${m_PLUS_Rounded_1c.className}`}>{this.meta.title}</p>
-          <div className={`${styles.song_person} ${m_PLUS_Rounded_1c.className}`}>
+          <p className={`${styles.song_title}`}>{this.meta.title}</p>
+          <div className={`${styles.song_person}`}>
             {personsData}
           </div>
         </div>
-        <div className={`${styles.song_links} ${m_PLUS_Rounded_1c.className}`}>
+        <div className={`${styles.song_links}`}>
           {this.meta.YouTube != "" ? (
             <Link href={this.meta.YouTube} className={styles.song_link} target="_blank" rel="noopener">
               <div className={styles.song_YouTube}>YouTube</div>
@@ -74,7 +68,7 @@ export default class SongFrame extends React.Component {
           }
 
         </div>
-        <div className={`${styles.song_lyrics} ${m_PLUS_Rounded_1c.className}`}>
+        <div className={`${styles.song_lyrics}`}>
           <p>{lyricsElements}</p>
         </div>
       </div>)
