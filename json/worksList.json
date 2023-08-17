@@ -59,7 +59,7 @@
   {
     "id": 5,
     "title": "megahon",
-    "description": "Vo.初音ミク, Illustシリウス",
+    "description": "Vo.初音ミク",
     "link": "/megahon",
     "img": "/megahon/thumb.png",
     "tags": [
@@ -152,7 +152,7 @@
   {
     "id": 1,
     "title": "WOEIC STG",
-    "description": "日→英の単語学習をシューティングゲームでアイテムや難易度調整も",
+    "description": "日→英の単語学習をシューティングゲーム、アイテムや難易度調整も",
     "link": "/woeic_stg",
     "img": "/woeic_stg/thumb.png",
     "tags": [
