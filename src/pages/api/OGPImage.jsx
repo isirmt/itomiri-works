@@ -5,9 +5,14 @@ export const config = {
   runtime: "edge",
 }
 
-export default function handler(req) {
+const font = fetch(
+  new URL("../../../public/MPLUSRounded1c-Regular.ttf", import.meta.url)
+).then((res) => res.arrayBuffer())
+
+export default async function handler(req) {
   try {
     const { searchParams } = new URL(req.url)
+    const fontData = await font;
 
     const hasId = searchParams.has("id")
     const targetId = hasId
@@ -82,13 +87,16 @@ export default function handler(req) {
               <li style={{
                 backgroundColor: "#3DCAB1",
                 color: "white",
-                fontWeight: "bold",
+                fontWeight: "bolder",
+                lineHeight: "24px",
                 listStyle: "none",
                 position: "relative",
+                paddingTop: "-3px",
                 paddingLeft: "8px",
                 paddingRight: "14px",
-                marginRight: "30px",
-                marginBottom: "10px",
+                paddingBottom: "5px",
+                marginRight: "20px",
+                marginBottom: "8px",
                 borderRadius: ".2rem .5rem .5rem .2rem"
               }}
                 className="custom-element"
@@ -100,6 +108,13 @@ export default function handler(req) {
       {
         width: 1200,
         height: 630,
+        fonts: [
+          {
+            name: "M PLUS Rounded 1c",
+            data: fontData,
+            style: "normal",
+          },
+        ],
       }
     )
   } catch (e) {
