@@ -22,16 +22,6 @@ export default class Home extends React.Component {
     this.uniqueTags = Array.from(new Set(works.flatMap(item => item.tags.map(tag => tag.name))))
   }
 
-  componentDidMount = () => {
-    const params = new URLSearchParams(window.location.search);
-
-    const filter = params.get('filter');
-    if (filter) {
-      const valuesArray = filter.split(',');
-      this.setState({ filterTags: [...this.state.filterTags, ...valuesArray] });
-    }
-  }
-
   resetTags = () => {
     this.setState({ filterTags: [] })
     this.uniqueTags.forEach((tag) => {
@@ -112,6 +102,13 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.handleDocumentClick)
+    const params = new URLSearchParams(window.location.search);
+
+    const filter = params.get('filter');
+    if (filter) {
+      const valuesArray = filter.split(',');
+      this.setState({ filterTags: [...this.state.filterTags, ...valuesArray] });
+    }
   }
 
   componentWillUnmount() {
