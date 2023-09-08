@@ -102,6 +102,13 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.handleDocumentClick)
+    const params = new URLSearchParams(window.location.search);
+
+    const filter = params.get('filter');
+    if (filter) {
+      const valuesArray = filter.split(',');
+      this.setState({ filterTags: [...this.state.filterTags, ...valuesArray] });
+    }
   }
 
   componentWillUnmount() {
