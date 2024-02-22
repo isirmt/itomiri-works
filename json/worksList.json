@@ -32,6 +32,9 @@
       },
       {
         "name": "niconico"
+      },
+      {
+        "name": "ボカコレ"
       }
     ]
   },
@@ -71,13 +74,16 @@
       },
       {
         "name": "niconico"
+      },
+      {
+        "name": "ボカコレ"
       }
     ]
   },
   {
     "id": 6,
     "title": "Road Sign",
-    "description": "Vo.初音ミク, Illustシリウス",
+    "description": "Vo.初音ミク",
     "link": "/RoadSign",
     "img": "/RoadSign/thumb.png",
     "tags": [
@@ -89,6 +95,9 @@
       },
       {
         "name": "niconico"
+      },
+      {
+        "name": "ボカコレ"
       }
     ]
   },
@@ -113,7 +122,7 @@
   {
     "id": 8,
     "title": "変わりたい",
-    "description": "Vo.初音ミク, Illustシリウス",
+    "description": "Vo.初音ミク, 作詞・イラスト: シリウス",
     "link": "/kawaritai",
     "img": "/kawaritai/thumb.png",
     "tags": [
@@ -122,6 +131,9 @@
       },
       {
         "name": "YouTube"
+      },
+      {
+        "name": "ボカコレ"
       },
       {
         "name": "niconico"
@@ -170,6 +182,24 @@
       },
       {
         "name": "Shooting"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Blue Recollection",
+    "description": "Vo.初音ミク, 作詞・イラスト: シリウス",
+    "link": "/BlueRecollection",
+    "img": "/BlueRecollection/thumb.png",
+    "tags": [
+      {
+        "name": "Music"
+      },
+      {
+        "name": "ボカコレ"
+      },
+      {
+        "name": "niconico"
       }
     ]
   }

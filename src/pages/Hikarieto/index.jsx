@@ -63,7 +63,7 @@ export default class HikarietoMain extends React.Component {
         <SEO 
           pageTitle={meta.title}
           pageDescription={"楽曲「" + meta.title + "」紹介ページ"}
-          contentId={4}
+          contentId={3}
         />
         <SongFrame meta={meta} lyrics={this.lyrics}/>
       </>
