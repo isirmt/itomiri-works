@@ -175,9 +175,6 @@
         "name": "Windows"
       },
       {
-        "name": "Mac OS"
-      },
-      {
         "name": "Linux"
       },
       {
@@ -200,6 +197,9 @@
       },
       {
         "name": "niconico"
+      },
+      {
+        "name": "YouTube"
       }
     ]
   }
