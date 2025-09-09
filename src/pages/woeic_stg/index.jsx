@@ -66,7 +66,7 @@ export default class WoeicMain extends React.Component {
         </div>
         <div className={styles.top_banner}>
           <div className={styles.top_banner_caption_1}>Learning</div>
-          <div className={styles.top_banner_caption_2}>TOEIC&reg; Words</div>
+          <div className={styles.top_banner_caption_2}>English Words</div>
           <div className={styles.top_banner_caption_3}>with Shooting Game</div>
           <div className={styles.top_banner_icon}>
             <Image
